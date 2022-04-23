@@ -6,18 +6,104 @@
     android:layout_height="match_parent"
     tools:context=".ui.input.InputFragment"
     >
-
-    <TextView
-        android:id="@+id/text_dashboard"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:scrollbars="vertical">
+        <LinearLayout
+            android:id="@+id/inputArea"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_marginTop="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="地址："
+                    />
+
+                <TextView
+                    android:id="@+id/address"
+                    android:background="#ff00"
+                    android:textColor="#000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/dest"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="到站"
+                android:background="@drawable/editview_border"/>
+            <EditText
+                android:id="@+id/src"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="发站"
+                android:background="@drawable/editview_border"/>
+            <EditText
+                android:id="@+id/senderName"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="发货人"
+                android:background="@drawable/editview_border"/>
+            <EditText
+                android:id="@+id/senderTel"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="发货电话"
+                android:background="@drawable/editview_border"/>
+            <EditText
+                android:id="@+id/accepterName"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="收货人"
+                android:background="@drawable/editview_border"/>
+            <EditText
+                android:id="@+id/accepterTel"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="收货电话"
+                android:background="@drawable/editview_border"/>
+            <EditText
+                android:id="@+id/itemName"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="货物名称"
+                android:background="@drawable/editview_border"/>
+            <EditText
+                android:id="@+id/itemNum"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="件数"
+                android:background="@drawable/editview_border"/>
+            <EditText
+                android:id="@+id/payAlready"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="已付运费"
+                android:background="@drawable/editview_border"/>
+            <EditText
+                android:id="@+id/payDest"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="到付运费"
+                android:background="@drawable/editview_border"/>
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="提交"/>
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

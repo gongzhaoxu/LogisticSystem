@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="235dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No:63215"
+        />
+    <TextView
+        android:id="@+id/src"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发站"
+        />
+
+    <TextView
+        android:id="@+id/dest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="到站"
+
+        />
+    <TextView
+        android:id="@+id/senderName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发货人"
+        />
+    <TextView
+        android:id="@+id/senderTel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发货电话"
+        />
+    <TextView
+        android:id="@+id/accepterName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="收货人"
+        />
+    <TextView
+        android:id="@+id/accepterTel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="收货电话"
+        />
+    <TextView
+        android:id="@+id/itemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="货物名称"
+        />
+    <TextView
+        android:id="@+id/itemNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="件数"
+        />
+    <TextView
+        android:id="@+id/payAlready"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="已付运费"
+        />
+    <TextView
+        android:id="@+id/payDest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="到付运费"
+        />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="?android:attr/listDivider" />
+
+</LinearLayout>

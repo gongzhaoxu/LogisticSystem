@@ -1,12 +1,14 @@
 package com.example.logisticsystem.ui.query
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.logisticsystem.LogisticView
+import com.example.logisticsystem.MyDatabaseHelper
 import com.example.logisticsystem.databinding.FragmentQueryBinding
 
 class QueryFragment : Fragment() {
@@ -25,9 +27,24 @@ class QueryFragment : Fragment() {
         _binding = FragmentQueryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        queryViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        //数据库
+        val dbHelper =
+            getActivity()?.let { MyDatabaseHelper(it.getApplicationContext(), "LogisticSystem.db", 1) }
+
+        var db = dbHelper?.writableDatabase
+
+
+        binding.local.setOnClickListener{
+            val intent=Intent(activity, LogisticView::class.java)
+            startActivity(intent)
+        }
+
+        binding.delete.setOnClickListener{
+            if (dbHelper != null) {
+                if (db != null) {
+                    dbHelper.delete(db)
+                }
+            }
         }
         return root
     }

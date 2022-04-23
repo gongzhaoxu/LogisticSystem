@@ -1,22 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.query.QueryFragment">
 
-    <TextView
-        android:id="@+id/text_home"
+
+    <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="334dp"
+        android:columnCount="2"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp"
+        android:rowCount="3">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/local"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_columnSpan="2"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="本机运单"
+            android:textSize="20dp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/remote_xml"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+
+            android:text="公司XML运单"
+            android:textSize="20dp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/remote_json"
+
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="5dp"
+            android:text="公司JSON运单"
+            android:textSize="20dp" />
+
+        <com.google.android.material.button.MaterialButton
+
+            android:id="@+id/delete"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginRight="5dp"
+            android:text="清空本机运单"
+            android:textSize="20dp" />
+
+
+    </GridLayout>
+
+
+</LinearLayout>

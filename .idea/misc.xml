@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/bg_radius.xml" value="0.1335" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/editview_border.xml" value="0.125" />
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/grid_radius.xml" value="0.1155" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/ic___.xml" value="0.15" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/ic__input.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1" />
@@ -20,12 +21,14 @@
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/icon_full.xml" value="0.1455" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/activity_info.xml" value="0.12273550724637682" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/activity_login.xml" value="0.1" />
-        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/activity_logistic_view.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/fragment_home.xml" value="0.10739614994934144" />
-        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/fragment_input.xml" value="0.11367753623188406" />
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/fragment_input.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/fragment_mine.xml" value="0.25" />
-        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/fragment_query.xml" value="0.11367753623188406" />
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/fragment_query.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/logistic_view_item.xml" value="0.22083333333333333" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/menu/bottom_nav_menu.xml" value="0.18425925925925926" />
       </map>
     </option>
