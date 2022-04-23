@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_mine">
+
+    <fragment
+        android:id="@+id/navigation_query"
+        android:name="com.example.logisticsystem.ui.query.QueryFragment"
+        android:label="@string/title_query"
+        tools:layout="@layout/fragment_query" />
+
+    <fragment
+        android:id="@+id/navigation_input"
+        android:name="com.example.logisticsystem.ui.input.InputFragment"
+        android:label="@string/title_input"
+        tools:layout="@layout/fragment_input" />
+
+    <fragment
+        android:id="@+id/navigation_mine"
+        android:name="com.example.logisticsystem.ui.mine.MineFragment"
+        android:label="@string/title_mine"
+        tools:layout="@layout/fragment_mine" />
+</navigation>
