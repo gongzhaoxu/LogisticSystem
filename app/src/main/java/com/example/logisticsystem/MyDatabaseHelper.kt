@@ -1,4 +1,5 @@
 package com.example.logisticsystem
+
 import android.annotation.SuppressLint
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
@@ -10,7 +11,7 @@ class MyDatabaseHelper(val context: Context, name: String, version: Int) :
 
     //数据库中获取的运单信息
     var logisticList = ArrayList<LogisticView.LogisticItem>()
-
+    var userList=ArrayList<User>()
     private val createLogistic = "create table Logistic (" +
             "id integer primary key autoincrement," +
             "src text," +
@@ -24,30 +25,84 @@ class MyDatabaseHelper(val context: Context, name: String, version: Int) :
             "payAlready text," +
             "payDest text)"
 
+    private val createUser = "create table User (" +
+            "user_id integer primary key autoincrement," +
+            "user_department text," +
+            "user_name text," +
+            "user_login text," +
+            "user_passwd text," +
+            "user_tel text)"
+
     //创建数据库
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL(createLogistic)
+        db.execSQL(createUser)
         Toast.makeText(context, "Create succeeded", Toast.LENGTH_SHORT).show()
-//        Toast.makeText(this, "Create succeeded", Toast.LENGTH_SHORT).show()
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
+//        db.execSQL(createLogistic)
+//        db.execSQL(createUser)
+//        onCreate(db)
+//        Toast.makeText(context, "Create succeeded", Toast.LENGTH_SHORT).show()
     }
 
-    //插入数据
+    //插入运单数据
     //录入不录入id
-    fun insertData(db: SQLiteDatabase,  src: String,  dest: String,  senderName: String,
-                    senderTel: String,  accepterName: String,  accepterTel: String,
-                    itemName: String,  itemNum: String,  payAlready: String,  payDest: String) {
+    fun insertData(
+        db: SQLiteDatabase, src: String, dest: String, senderName: String,
+        senderTel: String, accepterName: String, accepterTel: String,
+        itemName: String, itemNum: String, payAlready: String, payDest: String
+    ) {
         db.execSQL(
             "insert into Logistic ( src , dest , senderName , senderTel , accepterName ," +
                     " accepterTel , itemName , itemNum , payAlready , payDest ) values( ?, ?, ?, ?, ?, ?,?, ?, ?, ?)",
-            arrayOf( src, dest, senderName,senderTel,accepterName,
-                accepterTel,itemName,itemNum,payAlready,payDest)
+            arrayOf(
+                src, dest, senderName, senderTel, accepterName,
+                accepterTel, itemName, itemNum, payAlready, payDest
+            )
         )
 //        Toast.makeText(context, "录入成功", Toast.LENGTH_SHORT).show()
     }
 
+    /**
+     * 插入用户
+     * 录入不录入id
+     */
+
+    fun insertUser(
+        db: SQLiteDatabase, user_department: String,
+        user_name: String, user_login: String, user_passwd: String, user_tel: String
+    ) {
+        db.execSQL(
+            "insert into User (   user_department , user_name , user_login , user_passwd , user_tel  ) values( ?,?, ?, ?, ?)",
+            arrayOf(user_department, user_name, user_login, user_passwd, user_tel)
+        )
+        Toast.makeText(context, "用户初始化完成", Toast.LENGTH_SHORT).show()
+    }
+
+    /**
+     * 获取用户信息用于在mine显示
+     */
+    @SuppressLint("Range")
+    fun getUser(db: SQLiteDatabase, user_login: String): ArrayList<User> {
+        var sql = "select * from User where user_login = \'$user_login\'"
+        val cursor = db.rawQuery(sql, null)
+        if (cursor.moveToFirst()) {
+            do {
+                val user_id = cursor.getString(cursor.getColumnIndex("user_id"))
+                val user_department = cursor.getString(cursor.getColumnIndex("user_department"))
+                val user_name = cursor.getString(cursor.getColumnIndex("user_name"))
+                val user_login = cursor.getString(cursor.getColumnIndex("user_login"))
+                val user_passwd = cursor.getString(cursor.getColumnIndex("user_passwd"))
+                val user_tel = cursor.getString(cursor.getColumnIndex("user_tel"))
+                var user = User(user_id, user_department, user_name, user_login, user_passwd, user_tel)
+                userList.add(user)
+            }while (cursor.moveToNext())
+        }
+        return userList
+        cursor.close()
+    }
 
     //筛选数据,返回运单list
     @SuppressLint("Range")
@@ -70,9 +125,11 @@ class MyDatabaseHelper(val context: Context, name: String, version: Int) :
                 val payAlready = cursor.getString(cursor.getColumnIndex("payAlready"))
                 val payDest = cursor.getString(cursor.getColumnIndex("payDest"))
 
-                val logisticItem: LogisticView.LogisticItem = LogisticView.LogisticItem(id , src , dest ,
-                    senderName , senderTel , accepterName ,accepterTel , itemName ,
-                    itemNum , payAlready , payDest)
+                val logisticItem: LogisticView.LogisticItem = LogisticView.LogisticItem(
+                    id, src, dest,
+                    senderName, senderTel, accepterName, accepterTel, itemName,
+                    itemNum, payAlready, payDest
+                )
 
                 logisticList.add(logisticItem)
             } while (cursor.moveToNext())
@@ -106,7 +163,7 @@ class MyDatabaseHelper(val context: Context, name: String, version: Int) :
     /**
      * 删除全表
      */
-    fun delete(db: SQLiteDatabase){
+    fun delete(db: SQLiteDatabase) {
         var sql = "delete from Logistic "
         db.execSQL(sql)
         Toast.makeText(context, "delete succeeded", Toast.LENGTH_SHORT).show()

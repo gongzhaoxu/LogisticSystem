@@ -1,19 +1,21 @@
 package com.example.logisticsystem
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.logisticsystem.databinding.ActivityMainBinding
+import com.example.logisticsystem.ui.mine.MineFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    @SuppressLint("LongLogTag")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -31,7 +33,37 @@ class MainActivity : AppCompatActivity() {
             )
         )
 //        setupActionBarWithNavController(navController, appBarConfiguration)
-        
+//        getSupportFragmentManager().findFragmentById(R.id.navigation_mine).
         navView.setupWithNavController(navController)
+        /**
+         * 获取登录界面传来的账号密码
+         */
+        val intent = getIntent()
+        var bundle = intent.extras
+        val user_login = bundle?.get("user_login").toString()
+        val user_passwd = bundle?.get("user_passwd").toString()
+        Log.e("MainActivity获取到Login页面的账号密码", "$user_login---$user_passwd")
+
+        /**
+         * 主界面传登录信息给mineFragment
+         */
+//        var bundleToFragment = bundle
+//        if (bundle != null) {
+//            bundleToFragment=bundle
+//        }
+//
+        var bundleFragment:Bundle=Bundle()
+
+        bundleFragment.putString("user_login",user_login)
+        bundleFragment.putString("user_passwd",user_passwd)
+
+        val mineFragment = MineFragment()
+        mineFragment.arguments = bundleFragment
+        val manager = supportFragmentManager
+        val transaction  = manager.beginTransaction()
+        //事务的布局为“我的”碎片的布局
+        transaction.replace(R.id.ignore,mineFragment)
+        transaction.commit()
+
     }
 }

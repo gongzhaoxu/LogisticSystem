@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/avatar_girl_1.xml" value="0.126" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/bg_radius.xml" value="0.1335" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/editview_border.xml" value="0.125" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/grid_radius.xml" value="0.1155" />
@@ -24,7 +25,7 @@
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/activity_info.xml" value="0.12273550724637682" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/activity_logistic_view.xml" value="0.25" />
-        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/fragment_home.xml" value="0.10739614994934144" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/fragment_input.xml" value="0.1" />
