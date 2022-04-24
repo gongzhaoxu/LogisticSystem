@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LogisticSystem</string>
+    <string name="app_name">乐乐物流</string>
     <string name="title_query">查询</string>
     <string name="title_input">录入</string>
     <string name="title_mine">我的</string>

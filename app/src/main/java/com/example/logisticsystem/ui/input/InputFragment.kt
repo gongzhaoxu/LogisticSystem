@@ -1,9 +1,16 @@
 package com.example.logisticsystem.ui.input
 
+import android.app.Activity
+import android.app.AlertDialog
+import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.logisticsystem.MyDatabaseHelper
@@ -21,10 +28,11 @@ class InputFragment : Fragment() {
 
     private var _binding: FragmentInputBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
+    /**
+     * 城市选择器
+     */
     var mPicker: CityPickerView = CityPickerView();
 
 
@@ -51,6 +59,15 @@ class InputFragment : Fragment() {
 
         var db = dbHelper?.writableDatabase
 
+
+        fun Context.hideKeyboard(view: View) {
+            val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+            Toast.makeText(activity, "hide调用", Toast.LENGTH_SHORT).show()
+        }
+        /**
+         * 提交表单
+         */
         binding.submit.setOnClickListener {
             var src = binding.src.text.toString()
             var dest = binding.dest.text.toString()
@@ -73,6 +90,27 @@ class InputFragment : Fragment() {
                     )
                 }
             }
+            val dbHelper =
+                getActivity()?.let {
+                    MyDatabaseHelper(
+                        it.getApplicationContext(),
+                        "LogisticSystem.db",
+                        1
+                    )
+                }
+            AlertDialog.Builder(getActivity()).apply {
+                setTitle("通知")
+                setMessage("录入运单成功")
+                setCancelable(false)
+                //点击back无法返回，默认是true
+                setPositiveButton("确认") { dialog, which ->
+
+                }
+                setNegativeButton("返回") { dialog, which ->
+
+                }
+                show()
+            }
 
         }
 
@@ -84,27 +122,56 @@ class InputFragment : Fragment() {
         mPicker.setConfig(cityConfig)
 
 
-//监听选择点击事件及返回结果
-        mPicker.setOnCityItemClickListener(object : OnCityItemClickListener() {
-            override fun onSelected(
-                province: ProvinceBean?,
-                city: CityBean?,
-                district: DistrictBean?
-            ) {
 
-                //省份province
-                //城市city
-                //地区district
-            }
 
-            override fun onCancel() {
-                ToastUtils.showLongToast(activity, "已取消")
-            }
-        })
 
-        //显示
-        mPicker.showCityPicker()
+        /**
+         * 收货地址点击监听
+         */
+        binding.dest.setOnClickListener {
+            //监听选择点击事件及返回结果
+            mPicker.setOnCityItemClickListener(object : OnCityItemClickListener() {
+                override fun onSelected(
+                    province: ProvinceBean?,
+                    city: CityBean?,
+                    district: DistrictBean?
+                ) {
+                    binding.dest.setText(province.toString() + city.toString() + district.toString())
+                    binding.dest.setTextColor(Color.rgb(0,0,0))
 
+                }
+
+                override fun onCancel() {
+                    ToastUtils.showLongToast(activity, "已取消")
+                }
+            })
+            //显示
+            mPicker.showCityPicker()
+        }
+        /**
+         * 发货地址点击监听
+         */
+        binding.src.setOnClickListener {
+            //监听选择点击事件及返回结果
+            mPicker.setOnCityItemClickListener(object : OnCityItemClickListener() {
+                override fun onSelected(
+                    province: ProvinceBean?,
+                    city: CityBean?,
+                    district: DistrictBean?
+                ) {
+                    binding.src.setText(province.toString() + city.toString() + district.toString())
+                    binding.src.setTextColor(Color.rgb(
+                        0,0,0
+                    ))
+                }
+
+                override fun onCancel() {
+                    ToastUtils.showLongToast(activity, "已取消")
+                }
+            })
+            //显示
+            mPicker.showCityPicker()
+        }
         return root
     }
 

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <solid android:color="@color/input_my" />
+    <!--<gradient
+        android:angle="90"
+        android:endColor="@color/green_light_my"
+        android:startColor="@color/green_my"
+        android:type="linear" />-->
+    <!--    <stroke-->
+    <!--        android:width="2dp"-->
+    <!--        android:color="#b8cde6" /> &lt;!&ndash; 定义描边的宽度和描边的颜色值 &ndash;&gt;-->
+
+    <corners
+        android:radius="6dp"
+        /> <!-- 设置四个角的半径 -->
+
+</shape>

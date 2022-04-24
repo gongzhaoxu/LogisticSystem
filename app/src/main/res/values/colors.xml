@@ -13,4 +13,5 @@
     <color name="green_my">#55bb58</color>
     <color name="green_dark_my">#2aae6f</color>
     <color name="editview_my">#f2f3f7</color>
+    <color name="input_my">#f4f4f4</color>
 </resources>

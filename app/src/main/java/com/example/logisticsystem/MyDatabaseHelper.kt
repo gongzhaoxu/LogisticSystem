@@ -45,7 +45,7 @@ class MyDatabaseHelper(val context: Context, name: String, version: Int) :
             arrayOf( src, dest, senderName,senderTel,accepterName,
                 accepterTel,itemName,itemNum,payAlready,payDest)
         )
-        Toast.makeText(context, "录入成功", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(context, "录入成功", Toast.LENGTH_SHORT).show()
     }
 
 
