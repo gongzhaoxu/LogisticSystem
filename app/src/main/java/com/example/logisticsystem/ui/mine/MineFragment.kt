@@ -1,21 +1,21 @@
 package com.example.logisticsystem.ui.mine
 
-import android.R
+import android.annotation.SuppressLint
 import android.app.Activity
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProvider.NewInstanceFactory
 import com.example.logisticsystem.MyDatabaseHelper
+import com.example.logisticsystem.R
 import com.example.logisticsystem.User
 import com.example.logisticsystem.databinding.FragmentMineBinding
-import kotlinx.android.synthetic.main.fragment_mine.*
-import kotlin.concurrent.thread
+import com.example.logisticsystem.ui.SharedViewModel
 
 
 class MineFragment : Fragment() {
@@ -23,8 +23,7 @@ class MineFragment : Fragment() {
     private var _binding: FragmentMineBinding? = null
     private val binding get() = _binding!!
 
-    private var num = 0
-
+    @SuppressLint("LongLogTag", "ResourceType")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -36,19 +35,9 @@ class MineFragment : Fragment() {
         _binding = FragmentMineBinding.inflate(inflater, container, false)
 
         val root: View = binding.root
-        /**
-         * 获取mainActivity传来的登录信息
-         */
-        //用户账号密码
-        var user_login_g: String = ""
-        val bundle = arguments
+        Log.e("MineFragment加载中", "MineFragment加载中")
 
-        if (bundle != null) {
-            var user_login = bundle.getString("user_login").toString()
-            var user_passwd = bundle.getString("user_passwd").toString()
-            user_login_g = user_login
-            Log.e("MineFragment获取到的账号密码", "$user_login---$user_passwd")
-        }
+
         //数据库
         val dbHelper =
             getActivity()?.let {
@@ -60,54 +49,146 @@ class MineFragment : Fragment() {
             }
 
         var db = dbHelper?.writableDatabase
-        var userList = ArrayList<User>()
-        if (dbHelper != null) {
-            if (db != null) {
-                userList = dbHelper.getUser(db, user_login_g)
+
+//        清空
+        /*if (db != null) {
+            if (dbHelper != null) {
+                dbHelper.deleteCurrentUser(db)
+            }
+        }*/
+
+        var viewModel = ViewModelProvider(
+            requireActivity(),
+            NewInstanceFactory()
+        ).get(SharedViewModel::class.java)
+
+        var currentUser: String = ""
+
+        viewModel.getCurrentUser().observe(viewLifecycleOwner) { item ->
+            Log.e(
+                "InputFragment传过来到MineFragment的数据 ",
+                item.user_login
+            )
+            if (dbHelper != null) {
+                if (db != null) {
+                    if (item.user_login != "") {
+                        //插入当前用户
+                        dbHelper.insertCurrentUser(db, item.user_login)
+                        //获取当前用户
+                        currentUser = dbHelper.getCurrentUser(db)
+                        var userList = ArrayList<User>()
+                        //获取当前用户信息
+                        userList = dbHelper.getUser(db, currentUser)
+                        //设置主页信息
+                        binding.userLogin.text = userList[0].user_login
+                        binding.userName.text= userList[0].user_name
+                        binding.userDepartment.text= userList[0].user_department
+                        binding.userTel.text= userList[0].user_tel
+                        if(userList[0].user_login=="20194711")
+                        {
+                            binding.avatar.setBackgroundResource(R.drawable.avatar)
+                        }else if (userList[0].user_login=="20190205"){
+                            binding.avatar.setBackgroundResource(R.drawable.avatar1)
+                        }else{
+                            //头像随机分配设置
+                            var id=userList[0].user_id.toInt()
+                            var avatar_index=id%12
+                            when(avatar_index){
+                                0->{
+                                    binding.avatar.setBackgroundResource(R.drawable.avatar_boy_1)
+                                }
+                                1->{
+                                    binding.avatar.setBackgroundResource(R.drawable.avatar_girl_1)
+                                }
+                                2->{
+                                    binding.avatar.setBackgroundResource(R.drawable.avatar_boy_2)
+                                }
+                                3->{
+                                    binding.avatar.setBackgroundResource(R.drawable.avatar_girl_2)
+                                }
+                                4->{
+                                    binding.avatar.setBackgroundResource(R.drawable.avatar_boy_3)
+                                }
+                                5->{
+                                    binding.avatar.setBackgroundResource(R.drawable.avatar_girl_3)
+                                }
+                                6->{
+                                    binding.avatar.setBackgroundResource(R.drawable.avatar_boy_4)
+                                }
+                                7->{
+                                    binding.avatar.setBackgroundResource(R.drawable.avatar_girl_4)
+                                }
+                                8->{
+                                    binding.avatar.setBackgroundResource(R.drawable.avatar_boy_5)
+                                }
+                                9->{
+                                    binding.avatar.setBackgroundResource(R.drawable.avatar_girl_5)
+                                }
+                                10->{
+                                    binding.avatar.setBackgroundResource(R.drawable.avatar_boy_6)
+                                }
+                                11->{
+                                    binding.avatar.setBackgroundResource(R.drawable.avatar_girl_6)
+                                }
+
+                            }
+                        }
+
+
+
+                        Log.e("获取到的用户", userList.toString())
+                    }
+                }
             }
         }
-        Log.e("获取到的用户", userList.toString())
-//        binding.userLogin.text = userList.toString()
-        binding.userLogin.text = "1123"
+
+
+
         return root
     }
+
+
+    @SuppressLint("LongLogTag")
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        var viewModel = ViewModelProvider(
+            requireActivity(),
+            NewInstanceFactory()
+        ).get(SharedViewModel::class.java)
+
+        viewModel.getCurrentUser().observe(viewLifecycleOwner) { item ->
+            Log.e(
+                "onSaveInstanceState保存数据为 ",
+                item.user_login
+
+            )
+            outState.putString("user_login", item.user_login)
+        }
+
+    }
+
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
 
-    override fun onStart() {
-        super.onStart()
-
-    }
-
-    override fun onResume() {
-        super.onResume()
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-    }
-
-    override fun onAttach(activity: Activity) {
-        super.onAttach(activity)
-
-    }
-
-    override fun onViewStateRestored(savedInstanceState: Bundle?) {
-
-        super.onViewStateRestored(savedInstanceState)
-
+    override fun onPause() {
+        super.onPause()
+        val mineViewModel =
+            ViewModelProvider(this).get(MineViewModel::class.java)
+        Log.e("MineFragment销毁中", "MineFragment销毁中")
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+
+
         _binding = null
     }
 }

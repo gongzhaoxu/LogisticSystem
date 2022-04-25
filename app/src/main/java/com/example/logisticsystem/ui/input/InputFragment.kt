@@ -1,20 +1,25 @@
 package com.example.logisticsystem.ui.input
 
+import android.R
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProvider.NewInstanceFactory
 import com.example.logisticsystem.MyDatabaseHelper
+import com.example.logisticsystem.User
 import com.example.logisticsystem.databinding.FragmentInputBinding
+import com.example.logisticsystem.ui.SharedViewModel
 import com.lljjcoder.Interface.OnCityItemClickListener
 import com.lljjcoder.bean.CityBean
 import com.lljjcoder.bean.DistrictBean
@@ -36,6 +41,7 @@ class InputFragment : Fragment() {
     var mPicker: CityPickerView = CityPickerView();
 
 
+    @SuppressLint("LongLogTag")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -46,7 +52,7 @@ class InputFragment : Fragment() {
 
         _binding = FragmentInputBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
+        Log.e("InputFragment加载中", "InputFragment加载中")
         //数据库
         val dbHelper =
             getActivity()?.let {
@@ -171,6 +177,42 @@ class InputFragment : Fragment() {
             //显示
             mPicker.showCityPicker()
         }
+
+        /**
+         * 获取mainActivity传来的登录信息
+         */
+
+        //用户账号密码
+        var user_login_g: String = ""
+        val bundle = arguments
+
+        if (bundle != null) {
+            var user_login = bundle.getString("user_login").toString()
+            var user_passwd = bundle.getString("user_passwd").toString()
+            user_login_g = user_login
+            Log.e("InputFragment获取到的账号密码", "$user_login---$user_passwd")
+        }
+        /**
+         * 设置用户user_login给其他Fragment，以此为凭证
+         */
+        var viewModel = ViewModelProvider(
+            requireActivity(),
+            NewInstanceFactory()
+        ).get(SharedViewModel::class.java)
+
+        val currentUser = User("","","","","","")
+        currentUser.user_login=user_login_g
+        //传递参数
+        viewModel.setCurrentUser(currentUser)
+
+
+//        viewModel.getCurrentUser().observe(viewLifecycleOwner) { item ->
+//            Log.e(
+//                "MineFragment传过来到InputFragment的数据 ",
+//                item.user_login
+//            )
+//        }
+
         return root
     }
 

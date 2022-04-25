@@ -1,7 +1,9 @@
 package com.example.logisticsystem.ui.query
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,12 +12,14 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.logisticsystem.LogisticView
 import com.example.logisticsystem.MyDatabaseHelper
 import com.example.logisticsystem.databinding.FragmentQueryBinding
+import com.example.logisticsystem.ui.SharedViewModel
 
 class QueryFragment : Fragment() {
 
     private var _binding: FragmentQueryBinding? = null
     private val binding get() = _binding!!
 
+    @SuppressLint("LongLogTag")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,12 +30,36 @@ class QueryFragment : Fragment() {
 
         _binding = FragmentQueryBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        Log.e("QueryFragment加载中", "QueryFragment加载中")
 
         //数据库
         val dbHelper =
             getActivity()?.let { MyDatabaseHelper(it.getApplicationContext(), "LogisticSystem.db", 1) }
 
         var db = dbHelper?.writableDatabase
+
+
+        var viewModel = ViewModelProvider(
+            requireActivity(),
+            ViewModelProvider.NewInstanceFactory()
+        ).get(SharedViewModel::class.java)
+
+        var currentUser: String = ""
+
+        viewModel.getCurrentUser().observe(viewLifecycleOwner) { item ->
+            Log.e(
+                "InputFragment传过来到QueryFragment的数据 ",
+                item.user_login
+            )
+            if (dbHelper != null) {
+                if (db != null) {
+                    if (item.user_login != "") {
+                        dbHelper.insertCurrentUser(db, item.user_login)
+                    }
+                }
+            }
+        }
+
 
 
         binding.local.setOnClickListener{

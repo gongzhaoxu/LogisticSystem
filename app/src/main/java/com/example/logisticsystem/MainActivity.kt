@@ -8,6 +8,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.example.logisticsystem.databinding.ActivityMainBinding
+import com.example.logisticsystem.ui.input.InputFragment
 import com.example.logisticsystem.ui.mine.MineFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("LongLogTag")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        Log.e("MainActivity加载中", "MainActivity加载中")
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -52,18 +53,31 @@ class MainActivity : AppCompatActivity() {
 //            bundleToFragment=bundle
 //        }
 //
+
+
+
         var bundleFragment:Bundle=Bundle()
 
         bundleFragment.putString("user_login",user_login)
         bundleFragment.putString("user_passwd",user_passwd)
 
-        val mineFragment = MineFragment()
-        mineFragment.arguments = bundleFragment
+//        val mineFragment = MineFragment()
+//        mineFragment.arguments = bundleFragment
+//        val manager = supportFragmentManager
+//        val transaction  = manager.beginTransaction()
+//        //事务的布局为“我的”碎片的布局
+//        transaction.replace(R.id.ignore1,mineFragment)
+//        transaction.commit()
+
+        val inputFragment = InputFragment()
+        inputFragment.arguments = bundleFragment
         val manager = supportFragmentManager
         val transaction  = manager.beginTransaction()
         //事务的布局为“我的”碎片的布局
-        transaction.replace(R.id.ignore,mineFragment)
+        transaction.replace(R.id.ignore1,inputFragment)
         transaction.commit()
+
+
 
     }
 }

@@ -3,7 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/avatar_boy_1.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/avatar_boy_2.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/avatar_boy_3.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/avatar_boy_4.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/avatar_boy_5.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/avatar_boy_6.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/avatar_girl_1.xml" value="0.126" />
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/avatar_girl_2.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/avatar_girl_3.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/avatar_girl_4.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/avatar_girl_5.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/avatar_girl_6.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/bg_radius.xml" value="0.1335" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/editview_border.xml" value="0.125" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/grid_radius.xml" value="0.1155" />
@@ -18,17 +29,18 @@
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/ic_query_black_24dp.xml" value="0.15" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/ic_right_arrow.xml" value="0.15" />
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/ic_user_bg.xml" value="0.106" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/icon.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/icon_bg.xml" value="0.1335" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/icon_full.xml" value="0.1455" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/drawable/input_radius.xml" value="0.102" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/activity_info.xml" value="0.12273550724637682" />
-        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/activity_login.xml" value="0.165" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/activity_logistic_view.xml" value="0.25" />
-        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/activity_main.xml" value="0.165" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/fragment_home.xml" value="0.10739614994934144" />
-        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/fragment_input.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/fragment_input.xml" value="0.335" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/fragment_mine.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/fragment_query.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/LogisticSystem/app/src/main/res/layout/logistic_view_item.xml" value="0.1" />

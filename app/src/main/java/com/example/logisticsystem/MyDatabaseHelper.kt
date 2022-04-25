@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 import android.widget.Toast
 
 class MyDatabaseHelper(val context: Context, name: String, version: Int) :
@@ -33,10 +34,14 @@ class MyDatabaseHelper(val context: Context, name: String, version: Int) :
             "user_passwd text," +
             "user_tel text)"
 
+
+    private val createCurrentUser="create table CurrentUser ( user_login text ) "
+
     //创建数据库
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL(createLogistic)
         db.execSQL(createUser)
+        db.execSQL(createCurrentUser)
         Toast.makeText(context, "Create succeeded", Toast.LENGTH_SHORT).show()
     }
 
@@ -78,7 +83,47 @@ class MyDatabaseHelper(val context: Context, name: String, version: Int) :
             "insert into User (   user_department , user_name , user_login , user_passwd , user_tel  ) values( ?,?, ?, ?, ?)",
             arrayOf(user_department, user_name, user_login, user_passwd, user_tel)
         )
-        Toast.makeText(context, "用户初始化完成", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(context, "用户初始化完成", Toast.LENGTH_SHORT).show()
+    }
+
+    /**
+     * 存入当前用户
+     */
+    fun insertCurrentUser(db: SQLiteDatabase, user_login: String){
+//        var sql = "delete from CurrentUser "
+//        db.execSQL(sql)
+        db.execSQL("insert into CurrentUser ( user_login  ) values( ?)",
+            arrayOf(user_login)
+        )
+        Log.e("插入当前用户完成$user_login","插入当前用户完成$user_login")
+//        Toast.makeText(context, "插入当前用户完成$user_login", Toast.LENGTH_SHORT).show()
+
+    }
+    /**
+     * 删除当前用户表数据
+     */
+    fun deleteCurrentUser(db: SQLiteDatabase){
+        var sql = "delete from CurrentUser "
+        db.execSQL(sql)
+        Log.e("删除当前用户完成","删除当前用户完成$")
+
+    }
+    /**
+     * 获取当前用户
+     */
+    @SuppressLint("Range")
+    fun getCurrentUser(db: SQLiteDatabase):String{
+        var sql = "select * from CurrentUser"
+        val cursor = db.rawQuery(sql, null)
+        var user_login=""
+        if (cursor.moveToFirst()) {
+            do {
+                 user_login = cursor.getString(cursor.getColumnIndex("user_login"))
+            }while (cursor.moveToNext())
+        }
+        return user_login
+        Log.e("获取当前用户完成$user_login","获取当前用户完成$user_login")
+        cursor.close()
     }
 
     /**
