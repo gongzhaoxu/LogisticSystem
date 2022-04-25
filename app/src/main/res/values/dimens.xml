@@ -9,4 +9,5 @@
     <dimen name="mine_layout_marginTop">10dp</dimen>
     <dimen name="mine_layout_height">55dp</dimen>
 
+    <dimen name="item_text_size">17dp</dimen>
 </resources>

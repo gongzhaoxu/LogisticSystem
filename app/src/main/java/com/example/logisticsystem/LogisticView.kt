@@ -2,6 +2,7 @@ package com.example.logisticsystem
 
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
 //import kotlinx.android.parcel.Parcelize
@@ -40,6 +41,14 @@ class LogisticView : AppCompatActivity() {
         binding.recycleView.layoutManager = layoutManager
         val adapter = LogisticAdapter(logisticList)
         binding.recycleView.adapter = adapter
+
+        /**
+         * 点击返回回到主页
+         */
+        binding.ret.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }

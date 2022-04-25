@@ -7,68 +7,201 @@
     android:orientation="vertical"
     tools:context=".ui.query.QueryFragment">
 
-
-    <GridLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="334dp"
-        android:columnCount="2"
-        android:orientation="horizontal"
-        android:paddingLeft="20dp"
-        android:paddingTop="20dp"
-        android:paddingRight="20dp"
-        android:paddingBottom="20dp"
-        android:rowCount="3">
+        android:layout_height="wrap_content">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/local"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_columnSpan="2"
-            android:gravity="center"
-            android:padding="20dp"
-            android:text="本机运单"
-            android:textSize="20dp"
-            />
+        <ImageView
+            android:id="@+id/radius_bg"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:background="@drawable/bg_radius"
+            android:orientation="vertical" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/remote_xml"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_marginRight="5dp"
-            android:gravity="center"
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_below="@+id/radius_bg"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-65dp"
+            android:background="@drawable/icon_full" />
 
-            android:text="公司XML运单"
-            android:textSize="20dp"
-            />
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/icon"
+            android:layout_centerInParent="true"
+            android:text="乐乐物流查询"
+            android:textColor="@color/black"
+            android:textSize="25dp" />
+    </RelativeLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/remote_json"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:overScrollMode="never"
+        android:scrollbars="vertical">
 
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_marginLeft="5dp"
-            android:text="公司JSON运单"
-            android:textSize="20dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <com.google.android.material.button.MaterialButton
+            <LinearLayout
 
-            android:id="@+id/delete"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_marginRight="5dp"
-            android:text="清空本机运单"
-            android:textSize="20dp" />
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_radius"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/local"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:backgroundTint="@color/green_light_my"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="本机运单"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_file" />
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_radius"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/remote_xml"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:backgroundTint="@color/green_light_my"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="公司XML运单"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_xml" />
 
 
-    </GridLayout>
+            </LinearLayout>
 
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_radius"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/remote_json"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:backgroundTint="@color/green_light_my"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="公司JSON运单"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_json" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_radius"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/delete"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:backgroundTint="@color/green_light_my"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="清空本机运单"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_delete" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

@@ -37,19 +37,19 @@ class LogisticAdapter(val logisticList: List<LogisticView.LogisticItem>) :
     //设置初次加载、滑动时的布局
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val logisticItem = logisticList[position]
-        holder.id.text = logisticItem.id
-        holder.src.text = logisticItem.src
-        holder.dest.text = logisticItem.dest
-        holder.senderName.text = logisticItem.senderName
+        holder.id.text = "No:X00012"+logisticItem.id
+        holder.src.text ="发站:"+ logisticItem.src
+        holder.dest.text = "到站:"+logisticItem.dest
+        holder.senderName.text = "发货人:"+logisticItem.senderName
 
-        holder.senderTel.text = logisticItem.senderTel
-        holder.accepterName.text = logisticItem.accepterName
-        holder.accepterTel.text = logisticItem.accepterTel
-        holder.itemName.text = logisticItem.itemName
+        holder.senderTel.text = "发货电话:"+logisticItem.senderTel
+        holder.accepterName.text = "收货人:"+logisticItem.accepterName
+        holder.accepterTel.text ="收货电话:"+ logisticItem.accepterTel
+        holder.itemName.text = "货物名称:"+logisticItem.itemName
 
-        holder.itemNum.text = logisticItem.itemNum
-        holder.payAlready.text = logisticItem.payAlready
-        holder.payDest.text = logisticItem.payDest
+        holder.itemNum.text = "货物数量:"+logisticItem.itemNum+"件"
+        holder.payAlready.text = "已付运费:"+logisticItem.payAlready+"元"
+        holder.payDest.text ="到付运费:"+ logisticItem.payDest+"元"
     }
 
     //获取列表中的项目个数，将其定义为书本数组的个数

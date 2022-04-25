@@ -97,7 +97,6 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/mine_info_textsize" />
             </LinearLayout>
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -132,7 +131,6 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/mine_info_textsize" />
             </LinearLayout>
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -168,7 +166,40 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/mine_info_textsize" />
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f0f0f0"
+                tools:ignore="MissingConstraints" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mine_layout_height"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints"
+
+                >
+
+                <TextView
+                    android:layout_width="@dimen/mine_info_width"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/mine_info_text_paddingLeft"
+                    android:text="当前时间："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mine_info_textsize" />
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:freezesText="true"
+                    android:gravity="center"
+                    android:text="2022-04-05 21:41:26"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mine_info_textsize" />
+            </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="6dp"
@@ -176,7 +207,7 @@
                 tools:ignore="MissingConstraints" />
 
             <LinearLayout
-                android:id="@+id/completeInfo"
+
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/mine_layout_height"
                 android:background="@color/white"
@@ -196,7 +227,7 @@
                     android:textSize="@dimen/mine_info_textsize" />
 
                 <com.google.android.material.button.MaterialButton
-
+                    android:id="@+id/completeInfo"
                     style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -205,7 +236,6 @@
                     app:iconGravity="end"
                     app:iconTint="#979797" />
             </LinearLayout>
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="6dp"
@@ -213,7 +243,43 @@
                 tools:ignore="MissingConstraints" />
 
             <LinearLayout
-                android:id="@+id/aboutAuthor"
+
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mine_layout_height"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints"
+
+                >
+
+                <TextView
+                    android:layout_width="@dimen/mine_info_width"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/mine_info_text_paddingLeft"
+
+                    android:text="给我留言"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mine_info_textsize" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/webview"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:backgroundTint="@color/white"
+                    app:icon="@drawable/ic_right_arrow"
+                    app:iconGravity="end"
+                    app:iconTint="#979797" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:background="#f0f0f0"
+                tools:ignore="MissingConstraints" />
+
+            <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/mine_layout_height"
                 android:background="@color/white"
@@ -231,7 +297,7 @@
                     android:textSize="@dimen/mine_info_textsize" />
 
                 <com.google.android.material.button.MaterialButton
-
+                    android:id="@+id/aboutAuthor"
                     style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

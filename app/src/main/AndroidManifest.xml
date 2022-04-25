@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.logisticsystem">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -43,7 +44,16 @@
                 <category android:name="com.example.logisticsystem.logisticView"/>
             </intent-filter>
         </activity>
-
+        <!--        webview界面-->
+        <activity
+            android:name=".WebViewActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.logisticsystem.webviewactivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.example.logisticsystem.webviewactivity1"/>
+            </intent-filter>
+        </activity>
 
     </application>
 

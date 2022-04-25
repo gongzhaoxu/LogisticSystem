@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
         inputFragment.arguments = bundleFragment
         val manager = supportFragmentManager
         val transaction  = manager.beginTransaction()
-        //事务的布局为“我的”碎片的布局
+        //事务的布局为“ignore1”碎片的布局
         transaction.replace(R.id.ignore1,inputFragment)
         transaction.commit()
 

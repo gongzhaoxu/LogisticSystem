@@ -1,83 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="235dp"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="No:63215"
-        />
-    <TextView
-        android:id="@+id/src"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="发站"
-        />
 
-    <TextView
-        android:id="@+id/dest"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="到站"
+        android:orientation="vertical"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        >
+        <TextView
+            android:id="@+id/id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No:63215"
+            android:textSize="@dimen/item_text_size"
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:id="@+id/src"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/item_text_size"
+            android:textColor="@color/black"
+            android:text="发站"
+            />
 
-        />
-    <TextView
-        android:id="@+id/senderName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="发货人"
-        />
-    <TextView
-        android:id="@+id/senderTel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="发货电话"
-        />
-    <TextView
-        android:id="@+id/accepterName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="收货人"
-        />
-    <TextView
-        android:id="@+id/accepterTel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="收货电话"
-        />
-    <TextView
-        android:id="@+id/itemName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="货物名称"
-        />
-    <TextView
-        android:id="@+id/itemNum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="件数"
-        />
-    <TextView
-        android:id="@+id/payAlready"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="已付运费"
-        />
-    <TextView
-        android:id="@+id/payDest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="到付运费"
-        />
+        <TextView
+            android:id="@+id/dest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/item_text_size"
+            android:textColor="@color/black"
+            android:text="到站"
+
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+
+                android:id="@+id/senderName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:textSize="@dimen/item_text_size"
+                android:textColor="@color/black"
+                android:text="发货人"
+                />
+            <TextView
+                android:id="@+id/senderTel"
+                android:layout_width="wrap_content"
+                android:layout_weight="5"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/item_text_size"
+                android:textColor="@color/black"
+                android:text="发货电话"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/accepterName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:textSize="@dimen/item_text_size"
+                android:textColor="@color/black"
+                android:text="收货人"
+                />
+            <TextView
+                android:id="@+id/accepterTel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:textSize="@dimen/item_text_size"
+                android:textColor="@color/black"
+                android:text="收货电话"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/itemName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:textSize="@dimen/item_text_size"
+                android:textColor="@color/black"
+                android:text="货物名称"
+                />
+            <TextView
+                android:id="@+id/itemNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:textSize="@dimen/item_text_size"
+                android:textColor="@color/black"
+                android:text="件数"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/payAlready"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:textSize="@dimen/item_text_size"
+                android:textColor="@color/black"
+                android:text="已付运费"
+                />
+            <TextView
+                android:id="@+id/payDest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:textSize="@dimen/item_text_size"
+                android:textColor="@color/black"
+                android:text="到付运费"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+
 
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="2dp"
         android:background="?android:attr/listDivider" />
 
 </LinearLayout>

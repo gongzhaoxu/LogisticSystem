@@ -44,6 +44,7 @@ class QueryFragment : Fragment() {
             ViewModelProvider.NewInstanceFactory()
         ).get(SharedViewModel::class.java)
 
+
         var currentUser: String = ""
 
         viewModel.getCurrentUser().observe(viewLifecycleOwner) { item ->
@@ -61,12 +62,16 @@ class QueryFragment : Fragment() {
         }
 
 
-
+        /**
+         * 本地运单
+         */
         binding.local.setOnClickListener{
             val intent=Intent(activity, LogisticView::class.java)
             startActivity(intent)
         }
-
+        /**
+         * 清空本地运单
+         */
         binding.delete.setOnClickListener{
             if (dbHelper != null) {
                 if (db != null) {
