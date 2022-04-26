@@ -54,7 +54,25 @@
                 <category android:name="com.example.logisticsystem.webviewactivity1"/>
             </intent-filter>
         </activity>
-
+        <!--        注册界面 -->
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.logisticsystem.registeractivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.example.logisticsystem.registeractivity1"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".CompleteUser"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.logisticsystem.CompleteUser" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.example.logisticsystem.CompleteUser1"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

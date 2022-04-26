@@ -37,7 +37,7 @@ class LogisticAdapter(val logisticList: List<LogisticView.LogisticItem>) :
     //设置初次加载、滑动时的布局
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val logisticItem = logisticList[position]
-        holder.id.text = "No:X00012"+logisticItem.id
+        holder.id.text = "No:"+logisticItem.id
         holder.src.text ="发站:"+ logisticItem.src
         holder.dest.text = "到站:"+logisticItem.dest
         holder.senderName.text = "发货人:"+logisticItem.senderName

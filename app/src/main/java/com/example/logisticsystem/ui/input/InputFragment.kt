@@ -65,11 +65,6 @@ class InputFragment : Fragment() {
 
         var db = dbHelper?.writableDatabase
 
-        fun Context.hideKeyboard(view: View) {
-            val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
-            Toast.makeText(activity, "hide调用", Toast.LENGTH_SHORT).show()
-        }
         /**
          * 提交表单
          */
@@ -127,9 +122,6 @@ class InputFragment : Fragment() {
         mPicker.setConfig(cityConfig)
 
 
-
-
-
         /**
          * 收货地址点击监听
          */
@@ -142,7 +134,7 @@ class InputFragment : Fragment() {
                     district: DistrictBean?
                 ) {
                     binding.dest.setText(province.toString() + city.toString() + district.toString())
-                    binding.dest.setTextColor(Color.rgb(0,0,0))
+                    binding.dest.setTextColor(Color.rgb(0, 0, 0))
 
                 }
 
@@ -165,9 +157,11 @@ class InputFragment : Fragment() {
                     district: DistrictBean?
                 ) {
                     binding.src.setText(province.toString() + city.toString() + district.toString())
-                    binding.src.setTextColor(Color.rgb(
-                        0,0,0
-                    ))
+                    binding.src.setTextColor(
+                        Color.rgb(
+                            0, 0, 0
+                        )
+                    )
                 }
 
                 override fun onCancel() {
@@ -184,13 +178,17 @@ class InputFragment : Fragment() {
 
         //用户账号密码
         var user_login_g: String = ""
+        var currentUser_g: String = ""
         val bundle = arguments
 
         if (bundle != null) {
             var user_login = bundle.getString("user_login").toString()
             var user_passwd = bundle.getString("user_passwd").toString()
+            var currentUser = bundle.getString("currentUser").toString()
             user_login_g = user_login
+            currentUser_g = currentUser
             Log.e("InputFragment获取到的账号密码", "$user_login---$user_passwd")
+            Log.e("InputFragment获取到的currentUser", "$currentUser")
         }
         /**
          * 设置用户user_login给其他Fragment，以此为凭证
@@ -200,18 +198,17 @@ class InputFragment : Fragment() {
             NewInstanceFactory()
         ).get(SharedViewModel::class.java)
 
-        val currentUser = User("","","","","","")
-        currentUser.user_login=user_login_g
-        //传递参数
-        viewModel.setCurrentUser(currentUser)
+        val currentUser = User("", "", "", "", "", "")
+        if (user_login_g != "") {
+            currentUser.user_login = user_login_g
+            //传递参数
+            viewModel.setCurrentUser(currentUser)
+        } else {
+            currentUser.user_login = currentUser_g
+            //传递参数
+            viewModel.setCurrentUser(currentUser)
+        }
 
-
-//        viewModel.getCurrentUser().observe(viewLifecycleOwner) { item ->
-//            Log.e(
-//                "MineFragment传过来到InputFragment的数据 ",
-//                item.user_login
-//            )
-//        }
 
         return root
     }

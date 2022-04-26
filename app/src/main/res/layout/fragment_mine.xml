@@ -33,7 +33,7 @@
                 android:layout_height="90dp"
                 android:freezesText="true"
                 android:layout_centerInParent="true"
-                android:background="@drawable/avatar" />
+                android:background="@drawable/ic_fatal_error" />
             <TextView
                 android:id="@+id/userLogin"
                 android:layout_width="match_parent"
@@ -42,7 +42,7 @@
                 android:freezesText="true"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="登陆学号"
+                android:text="Fatal Error"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
         </LinearLayout>
@@ -93,7 +93,7 @@
                     android:gravity="center"
                     android:freezesText="true"
 
-                    android:text="计算机1904班"
+                    android:text="Fatal Error"
                     android:textColor="@color/black"
                     android:textSize="@dimen/mine_info_textsize" />
             </LinearLayout>
@@ -127,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:freezesText="true"
-                    android:text="巩钊旭"
+                    android:text="Fatal Error"
                     android:textColor="@color/black"
                     android:textSize="@dimen/mine_info_textsize" />
             </LinearLayout>
@@ -162,7 +162,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:freezesText="true"
-                    android:text="13993449346"
+                    android:text="Fatal Error"
                     android:textColor="@color/black"
                     android:textSize="@dimen/mine_info_textsize" />
             </LinearLayout>
@@ -228,6 +228,42 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/completeInfo"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:backgroundTint="@color/white"
+                    app:icon="@drawable/ic_right_arrow"
+                    app:iconGravity="end"
+                    app:iconTint="#979797" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:background="#f0f0f0"
+                tools:ignore="MissingConstraints" />
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mine_layout_height"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints"
+
+                >
+
+                <TextView
+                    android:layout_width="@dimen/mine_info_width"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/mine_info_text_paddingLeft"
+
+                    android:text="切换用户"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/mine_info_textsize" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/switchuser"
                     style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

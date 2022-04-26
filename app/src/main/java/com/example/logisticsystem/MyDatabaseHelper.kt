@@ -12,7 +12,7 @@ class MyDatabaseHelper(val context: Context, name: String, version: Int) :
 
     //数据库中获取的运单信息
     var logisticList = ArrayList<LogisticView.LogisticItem>()
-    var userList=ArrayList<User>()
+    var userList = ArrayList<User>()
     private val createLogistic = "create table Logistic (" +
             "id integer primary key autoincrement," +
             "src text," +
@@ -35,7 +35,7 @@ class MyDatabaseHelper(val context: Context, name: String, version: Int) :
             "user_tel text)"
 
 
-    private val createCurrentUser="create table CurrentUser ( user_login text ) "
+    private val createCurrentUser = "create table CurrentUser ( user_login text ) "
 
     //创建数据库
     override fun onCreate(db: SQLiteDatabase) {
@@ -83,46 +83,71 @@ class MyDatabaseHelper(val context: Context, name: String, version: Int) :
             "insert into User (   user_department , user_name , user_login , user_passwd , user_tel  ) values( ?,?, ?, ?, ?)",
             arrayOf(user_department, user_name, user_login, user_passwd, user_tel)
         )
-//        Toast.makeText(context, "用户初始化完成", Toast.LENGTH_SHORT).show()
+        Log.e("插入新用户insertUser:", user_login)
+
+    }
+
+    /**
+     * 更新用户信息
+     */
+    fun completeUserInfo( db: SQLiteDatabase,user_login: String,user_department: String,
+                          user_name: String, user_tel: String){
+        var sql="update User set user_department= \'$user_department\' , user_name=\'$user_name\',user_tel=\'$user_tel\' where " +
+                "user_login=\'$user_login\'"
+        db.execSQL(sql)
+        Log.e("完善信息完成，完善的部门为：$user_department","完善的姓名为$user_name,完善的电话为$user_tel")
     }
 
     /**
      * 存入当前用户
      */
-    fun insertCurrentUser(db: SQLiteDatabase, user_login: String){
+    fun insertCurrentUser(db: SQLiteDatabase, user_login: String) {
 //        var sql = "delete from CurrentUser "
 //        db.execSQL(sql)
-        db.execSQL("insert into CurrentUser ( user_login  ) values( ?)",
-            arrayOf(user_login)
-        )
-        Log.e("插入当前用户完成$user_login","插入当前用户完成$user_login")
+        if (user_login == "null") {
+            Log.e("user_login", "user_login==null")
+            return
+        } else if (user_login == "") {
+            Log.e("user_login", "user_login==\"\"")
+            return
+        } else {
+            db.execSQL(
+                "insert into CurrentUser ( user_login  ) values( ?)",
+                arrayOf(user_login)
+            )
+            Log.e("插入当前用户完成$user_login", "插入当前用户完成$user_login")
+            return
+        }
+
 //        Toast.makeText(context, "插入当前用户完成$user_login", Toast.LENGTH_SHORT).show()
 
     }
+
     /**
      * 删除当前用户表数据
      */
-    fun deleteCurrentUser(db: SQLiteDatabase){
+    fun deleteCurrentUser(db: SQLiteDatabase) {
         var sql = "delete from CurrentUser "
         db.execSQL(sql)
-        Log.e("删除当前用户完成","删除当前用户完成$")
+        Log.e("删除当前用户完成", "删除当前用户完成$")
 
     }
+
     /**
      * 获取当前用户
      */
-    @SuppressLint("Range")
-    fun getCurrentUser(db: SQLiteDatabase):String{
+    @SuppressLint("Range", "LongLogTag")
+    fun getCurrentUser(db: SQLiteDatabase): String {
         var sql = "select * from CurrentUser"
         val cursor = db.rawQuery(sql, null)
-        var user_login=""
+        var user_login = ""
         if (cursor.moveToFirst()) {
             do {
-                 user_login = cursor.getString(cursor.getColumnIndex("user_login"))
-            }while (cursor.moveToNext())
+                user_login = cursor.getString(cursor.getColumnIndex("user_login"))
+            } while (cursor.moveToNext())
         }
         return user_login
-        Log.e("获取当前用户完成$user_login","获取当前用户完成$user_login")
+        Log.e("数据库获取当前用户getCurrentUser完成$user_login", "获取当前用户完成$user_login")
         cursor.close()
     }
 
@@ -141,9 +166,15 @@ class MyDatabaseHelper(val context: Context, name: String, version: Int) :
                 val user_login = cursor.getString(cursor.getColumnIndex("user_login"))
                 val user_passwd = cursor.getString(cursor.getColumnIndex("user_passwd"))
                 val user_tel = cursor.getString(cursor.getColumnIndex("user_tel"))
-                var user = User(user_id, user_department, user_name, user_login, user_passwd, user_tel)
+                var user =
+                    User(user_id, user_department, user_name, user_login, user_passwd, user_tel)
                 userList.add(user)
-            }while (cursor.moveToNext())
+            } while (cursor.moveToNext())
+        }
+        if(userList.size==0){
+            Log.e("数据库中不存在此用户","!")
+        }else{
+            Log.e("查找用户",userList[0].user_login.toString())
         }
         return userList
         cursor.close()

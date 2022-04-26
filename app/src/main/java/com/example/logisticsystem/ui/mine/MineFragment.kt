@@ -14,10 +14,7 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.NewInstanceFactory
-import com.example.logisticsystem.MyDatabaseHelper
-import com.example.logisticsystem.R
-import com.example.logisticsystem.User
-import com.example.logisticsystem.WebViewActivity
+import com.example.logisticsystem.*
 import com.example.logisticsystem.databinding.FragmentMineBinding
 import com.example.logisticsystem.ui.SharedViewModel
 import java.time.LocalDateTime
@@ -80,16 +77,14 @@ class MineFragment : Fragment() {
                 if (db != null) {
                     //若识别到item.user_login内容不为空，则在当前碎片渲染信息，否则则代表已经渲染过，不用处理
 //                    if (item.user_login != "") {
-                    if (item.user_login != null) {
-                        //插入当前用户
-                        dbHelper.insertCurrentUser(db, item.user_login)
+                    if (item.user_login == "null") {
                         //获取当前用户
                         currentUser = dbHelper.getCurrentUser(db)
                         var userList = ArrayList<User>()
                         //获取当前用户信息
                         userList = dbHelper.getUser(db, currentUser)
                         //若数据库中查到非空则渲染，否则则代表已经渲染过，不用处理
-                        if (userList.size!=0){
+                        if (userList.size != 0) {
                             //设置主页信息
                             binding.userLogin.text = userList[0].user_login
                             binding.userName.text = userList[0].user_name
@@ -145,16 +140,158 @@ class MineFragment : Fragment() {
                             }
                             initThread()
                             Log.e("获取到的用户", userList.toString())
+                        } else {
+                            Log.e("userList.size == 0", "userList.size == 0")
                         }
-                       else{
+                    } else if (item.user_login == "") {
+                        //插入当前用户
+                        dbHelper.insertCurrentUser(db, item.user_login)
+                        //获取当前用户
+                        currentUser = dbHelper.getCurrentUser(db)
+                        var userList = ArrayList<User>()
+                        //获取当前用户信息
+                        userList = dbHelper.getUser(db, currentUser)
+                        //若数据库中查到非空则渲染，否则则代表已经渲染过，不用处理
+                        if (userList.size != 0) {
+                            //设置主页信息
+                            binding.userLogin.text = userList[0].user_login
+                            binding.userName.text = userList[0].user_name
+                            binding.userDepartment.text = userList[0].user_department
+                            binding.userTel.text = userList[0].user_tel
+                            if (userList[0].user_login == "20194711") {
+                                binding.avatar.setBackgroundResource(R.drawable.avatar)
+                            } else if (userList[0].user_login == "20190205") {
+                                binding.avatar.setBackgroundResource(R.drawable.avatar1)
+                            } else {
+                                //头像随机分配设置
+                                var id = userList[0].user_id.toInt()
+                                var avatar_index = id % 12
+                                when (avatar_index) {
+                                    0 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_boy_1)
+                                    }
+                                    1 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_girl_1)
+                                    }
+                                    2 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_boy_2)
+                                    }
+                                    3 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_girl_2)
+                                    }
+                                    4 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_boy_3)
+                                    }
+                                    5 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_girl_3)
+                                    }
+                                    6 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_boy_4)
+                                    }
+                                    7 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_girl_4)
+                                    }
+                                    8 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_boy_5)
+                                    }
+                                    9 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_girl_5)
+                                    }
+                                    10 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_boy_6)
+                                    }
+                                    11 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_girl_6)
+                                    }
 
+                                }
+                            }
+                            initThread()
+                            Log.e("获取到的用户", userList.toString())
+                        } else {
+                            Log.e("userList.size == 0", "userList.size == 0")
                         }
 
+                    }else{
+                        //插入当前用户
+                        dbHelper.insertCurrentUser(db, item.user_login)
+                        //获取当前用户
+                        currentUser = dbHelper.getCurrentUser(db)
+                        var userList = ArrayList<User>()
+                        //获取当前用户信息
+                        userList = dbHelper.getUser(db, currentUser)
+                        //若数据库中查到非空则渲染，否则则代表已经渲染过，不用处理
+                        if (userList.size != 0) {
+                            //设置主页信息
+                            binding.userLogin.text = userList[0].user_login
+                            binding.userName.text = userList[0].user_name
+                            binding.userDepartment.text = userList[0].user_department
+                            binding.userTel.text = userList[0].user_tel
+                            if (userList[0].user_login == "20194711") {
+                                binding.avatar.setBackgroundResource(R.drawable.avatar)
+                            } else if (userList[0].user_login == "20190205") {
+                                binding.avatar.setBackgroundResource(R.drawable.avatar1)
+                            } else {
+                                //头像随机分配设置
+                                var id = userList[0].user_id.toInt()
+                                var avatar_index = id % 12
+                                when (avatar_index) {
+                                    0 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_boy_1)
+                                    }
+                                    1 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_girl_1)
+                                    }
+                                    2 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_boy_2)
+                                    }
+                                    3 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_girl_2)
+                                    }
+                                    4 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_boy_3)
+                                    }
+                                    5 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_girl_3)
+                                    }
+                                    6 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_boy_4)
+                                    }
+                                    7 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_girl_4)
+                                    }
+                                    8 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_boy_5)
+                                    }
+                                    9 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_girl_5)
+                                    }
+                                    10 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_boy_6)
+                                    }
+                                    11 -> {
+                                        binding.avatar.setBackgroundResource(R.drawable.avatar_girl_6)
+                                    }
+
+                                }
+                            }
+                            initThread()
+                            Log.e("获取到的用户", userList.toString())
+                        } else {
+                            Log.e("userList.size == 0", "userList.size == 0")
+                        }
                     }
                 }
             }
         }
-
+        /**
+         * 跳转完善资料
+         */
+        binding.completeInfo.setOnClickListener {
+            val intent = Intent(activity, CompleteUser::class.java)
+            intent.putExtra("user_login",binding.userLogin.text.toString())
+            startActivity(intent)
+        }
         /**
          * 跳转我的网站反馈界面
          */
@@ -162,7 +299,13 @@ class MineFragment : Fragment() {
             val intent = Intent(activity, WebViewActivity::class.java)
             startActivity(intent)
         }
-
+        /**
+         * 切换用户
+         */
+        binding.switchuser.setOnClickListener {
+            val intent = Intent(activity, Login::class.java)
+            startActivity(intent)
+        }
         return root
     }
 

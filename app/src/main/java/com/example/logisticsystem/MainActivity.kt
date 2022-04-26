@@ -43,24 +43,28 @@ class MainActivity : AppCompatActivity() {
         var bundle = intent.extras
         val user_login = bundle?.get("user_login").toString()
         val user_passwd = bundle?.get("user_passwd").toString()
+
+        /**
+         * 获取数据库当前用户
+         */
+        val dbHelper = MyDatabaseHelper(this, "LogisticSystem.db", 1)
+        var db = dbHelper.writableDatabase
+
+        val currentUser = dbHelper.getCurrentUser(db)
+
         Log.e("MainActivity获取到Login页面的账号密码", "$user_login---$user_passwd")
+        Log.e("MainActivity获取到数据库的当前账号", "$currentUser")
 
         /**
          * 主界面传登录信息给mineFragment
          */
-//        var bundleToFragment = bundle
-//        if (bundle != null) {
-//            bundleToFragment=bundle
-//        }
-//
-
-
 
         var bundleFragment:Bundle=Bundle()
 
         bundleFragment.putString("user_login",user_login)
         bundleFragment.putString("user_passwd",user_passwd)
 
+        bundleFragment.putString("currentUser",user_login)
 //        val mineFragment = MineFragment()
 //        mineFragment.arguments = bundleFragment
 //        val manager = supportFragmentManager
