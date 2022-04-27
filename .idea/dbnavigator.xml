@@ -27,15 +27,28 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="32b07886-9b04-41c7-baf1-d3eb0676e23d">
-      <console name="Connection" type="STANDARD" schema="main" session="Main"><![CDATA[select * from "User"]]></console>
+    <connection id="ef003afc-59c3-43aa-b90c-780aac9b2635">
+      <console name="Connection" type="STANDARD" schema="main" session="Main"><![CDATA[select
+    l."accepterName",
+    l."accepterTel",
+    l.dest,
+    l.id,
+    l."itemName",
+    l."itemNum",
+    l."payAlready",
+    l."payDest",
+    l."senderName",
+    l."senderTel",
+    l.src
+from
+    "Logistic" l;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="32b07886-9b04-41c7-baf1-d3eb0676e23d" />
+    <connection id="ef003afc-59c3-43aa-b90c-780aac9b2635" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -66,7 +79,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="32b07886-9b04-41c7-baf1-d3eb0676e23d" active="true" signed="false">
+      <connection id="ef003afc-59c3-43aa-b90c-780aac9b2635" active="true" signed="false">
         <database>
           <name value="Connection" />
           <description value="" />
@@ -81,7 +94,7 @@
           <port value="" />
           <database value="" />
           <files>
-            <file path="D:\1巩钊旭\LogisticSystem.db" schema="main" />
+            <file path="C:\Users\10166\AppData\Local\Google\AndroidStudio2021.1\device-explorer\Pixel_4_API_30 [emulator-5554]\data\data\com.example.logisticsystem\databases\LogisticSystem.db" schema="main" />
           </files>
           <type value="NONE" />
           <user value="" />

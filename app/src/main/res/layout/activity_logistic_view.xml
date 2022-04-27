@@ -24,13 +24,19 @@
             android:background="?android:attr/listDivider"
              />
     </LinearLayout>
-    <ScrollView
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:overScrollMode="never"
-        android:scrollbars="vertical">
+        android:layout_alignParentBottom="true">
+        <TextView
+            android:id="@+id/ignorex"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
         <LinearLayout
+            android:layout_above="@+id/ret"
+            android:layout_below="@+id/ignorex"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -39,15 +45,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 />
-            <Button
-                android:id="@+id/ret"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:text="返回"/>
-        </LinearLayout>
-    </ScrollView>
 
+        </LinearLayout>
+
+        <Button
+
+            android:id="@+id/ret"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="返回" />
+    </RelativeLayout>
 
 </LinearLayout>

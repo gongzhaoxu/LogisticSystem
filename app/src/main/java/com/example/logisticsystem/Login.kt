@@ -29,6 +29,7 @@ class Login : AppCompatActivity() {
 
         dbHelper.completeUserInfo(db,"1001","测试部门","管理员","18888888888")
 
+        dbHelper.deleteItem(db,"1")
         /**
          * 账号实时显示正确与否
          */

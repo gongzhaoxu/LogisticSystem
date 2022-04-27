@@ -60,11 +60,12 @@ class LogisticView : AppCompatActivity() {
         val bundle = intent.extras
         val mode = bundle?.get("mode").toString()
 
+        var size = 0
+
         Log.e("mode==", mode)
         when (mode) {
             "local" -> {
                 logisticList = dbHelper.selectData(db)
-
                 val adapter = LogisticAdapter(logisticList)
                 binding.recycleView.adapter = adapter
             }
@@ -83,14 +84,29 @@ class LogisticView : AppCompatActivity() {
             }
         }
 
-
         /**
          * 点击返回回到主页
          */
         binding.ret.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+//            startActivity(intent)
+            setResult(1, intent)
+            finish()
         }
+
+    }
+
+    override fun onResume() {
+
+        super.onResume()
+//        /**
+//         * 数据库
+//         */
+//        val dbHelper = MyDatabaseHelper(this, "LogisticSystem.db", 1)
+//        var db = dbHelper.writableDatabase
+//        val logisticList = dbHelper.selectData(db)
+//        val adapter = LogisticAdapter(logisticList)
+//        binding.recycleView.adapter = adapter
 
     }
 
@@ -148,7 +164,7 @@ class LogisticView : AppCompatActivity() {
     private fun parseXML(responseData: String) {
         try {
 
-            Log.e("parseXML","被调用")
+            Log.e("parseXML", "被调用")
 
             val factory = XmlPullParserFactory.newInstance()
             val xmlPullParser = factory.newPullParser()

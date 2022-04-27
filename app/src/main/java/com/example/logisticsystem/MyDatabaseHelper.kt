@@ -180,6 +180,15 @@ class MyDatabaseHelper(val context: Context, name: String, version: Int) :
         cursor.close()
     }
 
+    /**
+     * 删除某条运单
+     */
+    fun deleteItem(db: SQLiteDatabase, id: String){
+        var sql = "delete from Logistic where id=\'$id\'"
+        db.execSQL(sql)
+        Log.e("id:$id","运单已被删除")
+    }
+
     //筛选数据,返回运单list
     @SuppressLint("Range")
     fun selectData(db: SQLiteDatabase): ArrayList<LogisticView.LogisticItem> {

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -290,6 +291,14 @@ class MineFragment : Fragment() {
         binding.completeInfo.setOnClickListener {
             val intent = Intent(activity, CompleteUser::class.java)
             intent.putExtra("user_login",binding.userLogin.text.toString())
+            startActivity(intent)
+        }
+        /**
+         * 关于作者
+         */
+        binding.aboutAuthor.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("https://github.com/gongzhaoxu")
             startActivity(intent)
         }
         /**

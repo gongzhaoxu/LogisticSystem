@@ -33,390 +33,388 @@
             android:background="?android:attr/listDivider"
             tools:ignore="MissingConstraints" />
     </LinearLayout>
-
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="43dp"
-        android:orientation="vertical"
-        android:overScrollMode="never"
-        android:scrollbars="vertical">
+        android:layout_alignParentBottom="true"
+        >
 
-        <LinearLayout
-            android:id="@+id/inputArea"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-            <!--            发货人-->
+            android:layout_marginTop="43dp"
+            android:orientation="vertical"
+            android:overScrollMode="never"
+            android:scrollbars="vertical"
+            android:layout_above="@+id/submit"
+            >
+
             <LinearLayout
+                android:id="@+id/inputArea"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:gravity="center_vertical"
-                    android:text="发货人:"
-                    android:textColor="@color/black"
-                    android:textSize="15dp" />
-
-                <EditText
-                    android:id="@+id/senderName"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/input_radius"
-                    android:gravity="center_vertical"
-                    android:hint="请输入发货人"
-                    android:paddingLeft="15dp"
-                    android:textSize="15dp" />
-            </LinearLayout>
-            <!--            发货电话-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:gravity="center_vertical"
-                    android:text="发货电话:"
-                    android:textColor="@color/black"
-                    android:textSize="15dp" />
-
-                <EditText
-                    android:id="@+id/senderTel"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/input_radius"
-                    android:gravity="center_vertical"
-                    android:hint="请输入发货电话"
-                    android:paddingLeft="15dp"
-                    android:textSize="15dp" />
-            </LinearLayout>
-            <!--            发货地址-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
+                <!--            发货人-->
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:layout_marginLeft="10dp"
-                        android:text="*"
-                        android:textColor="@color/liji_material_red_500" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
-
+                        android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:gravity="center_vertical"
-                        android:text="发货地址:"
+                        android:text="发货人:"
                         android:textColor="@color/black"
                         android:textSize="15dp" />
-                </LinearLayout>
 
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/src"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:gravity="center_vertical"
-                    android:hint="请输入发货地址"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp"
-                    android:paddingLeft="15dp"
-                    android:textSize="15dp"
-                    app:backgroundTint="@color/input_my"
-                    app:cornerRadius="6dp"
-                    app:icon="@drawable/ic_right_arrow"
-                    app:iconGravity="end"
-                    app:iconTint="#979797"
-
-                    />
-
-            </LinearLayout>
-
-            <!--                收货人-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:gravity="center_vertical"
-                    android:text="收货人:"
-                    android:textColor="@color/black"
-                    android:textSize="15dp" />
-
-                <EditText
-                    android:id="@+id/accepterName"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/input_radius"
-                    android:gravity="center_vertical"
-                    android:hint="请输入收货人"
-
-                    android:paddingLeft="15dp"
-                    android:textSize="15dp" />
-            </LinearLayout>
-            <!--            收货电话-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:gravity="center_vertical"
-                    android:text="收货电话:"
-                    android:textColor="@color/black"
-                    android:textSize="15dp" />
-
-                <EditText
-                    android:id="@+id/accepterTel"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/input_radius"
-                    android:gravity="center_vertical"
-                    android:hint="请输入收货电话"
-                    android:paddingLeft="15dp"
-                    android:textSize="15dp" />
-            </LinearLayout>
-            <!--            收货地址-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:text="*"
+                    <EditText
+                        android:id="@+id/senderName"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
                         android:layout_marginLeft="10dp"
-                        android:textColor="@color/liji_material_red_500" />
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/input_radius"
+                        android:gravity="center_vertical"
+                        android:hint="请输入发货人"
+                        android:paddingLeft="15dp"
+                        android:textSize="15dp" />
+                </LinearLayout>
+                <!--            发货电话-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:gravity="center_vertical"
-                        android:text="收货地址:"
+                        android:text="发货电话:"
                         android:textColor="@color/black"
                         android:textSize="15dp" />
+
+                    <EditText
+                        android:id="@+id/senderTel"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/input_radius"
+                        android:gravity="center_vertical"
+                        android:hint="请输入发货电话"
+                        android:paddingLeft="15dp"
+                        android:textSize="15dp" />
                 </LinearLayout>
-
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/dest"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:gravity="center_vertical"
-                    android:hint="请输入收货地址"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp"
-                    android:paddingLeft="15dp"
-                    android:textSize="15dp"
-                    app:backgroundTint="@color/input_my"
-                    app:cornerRadius="6dp"
-                    app:icon="@drawable/ic_right_arrow"
-                    app:iconGravity="end"
-                    app:iconTint="#979797" />
-            </LinearLayout>
-
-
-            <!--            货物名称-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                <!--            发货地址-->
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:orientation="horizontal">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
-                        android:text="*"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="10dp"
+                            android:text="*"
+                            android:textColor="@color/liji_material_red_500" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+
+                            android:layout_marginRight="10dp"
+                            android:gravity="center_vertical"
+                            android:text="发货地址:"
+                            android:textColor="@color/black"
+                            android:textSize="15dp" />
+                    </LinearLayout>
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/src"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
                         android:layout_marginLeft="10dp"
-                        android:textColor="@color/liji_material_red_500" />
+                        android:layout_marginRight="10dp"
+                        android:gravity="center_vertical"
+                        android:hint="请输入发货地址"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:paddingLeft="15dp"
+                        android:textSize="15dp"
+                        app:backgroundTint="@color/input_my"
+                        app:cornerRadius="6dp"
+                        app:icon="@drawable/ic_right_arrow"
+                        app:iconGravity="end"
+                        app:iconTint="#979797"
+
+                        />
+
+                </LinearLayout>
+
+                <!--                收货人-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:gravity="center_vertical"
-                        android:text="货物名称:"
+                        android:text="收货人:"
                         android:textColor="@color/black"
                         android:textSize="15dp" />
-                </LinearLayout>
 
-
-                <EditText
-                    android:id="@+id/itemName"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/input_radius"
-                    android:gravity="center_vertical"
-                    android:hint="请输入货物名称"
-                    android:paddingLeft="15dp"
-                    android:textSize="15dp" />
-            </LinearLayout>
-            <!--            件数-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:text="*"
+                    <EditText
+                        android:id="@+id/accepterName"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
                         android:layout_marginLeft="10dp"
-                        android:textColor="@color/liji_material_red_500" />
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/input_radius"
+                        android:gravity="center_vertical"
+                        android:hint="请输入收货人"
+
+                        android:paddingLeft="15dp"
+                        android:textSize="15dp" />
+                </LinearLayout>
+                <!--            收货电话-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:gravity="center_vertical"
-                        android:text="件数:"
+                        android:text="收货电话:"
                         android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <EditText
+                        android:id="@+id/accepterTel"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/input_radius"
+                        android:gravity="center_vertical"
+                        android:hint="请输入收货电话"
+                        android:paddingLeft="15dp"
+                        android:textSize="15dp" />
+                </LinearLayout>
+                <!--            收货地址-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:text="*"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/liji_material_red_500" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center_vertical"
+                            android:text="收货地址:"
+                            android:textColor="@color/black"
+                            android:textSize="15dp" />
+                    </LinearLayout>
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/dest"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center_vertical"
+                        android:hint="请输入收货地址"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:paddingLeft="15dp"
+                        android:textSize="15dp"
+                        app:backgroundTint="@color/input_my"
+                        app:cornerRadius="6dp"
+                        app:icon="@drawable/ic_right_arrow"
+                        app:iconGravity="end"
+                        app:iconTint="#979797" />
+                </LinearLayout>
+
+
+                <!--            货物名称-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:text="*"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/liji_material_red_500" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center_vertical"
+                            android:text="货物名称:"
+                            android:textColor="@color/black"
+                            android:textSize="15dp" />
+                    </LinearLayout>
+
+
+                    <EditText
+                        android:id="@+id/itemName"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/input_radius"
+                        android:gravity="center_vertical"
+                        android:hint="请输入货物名称"
+                        android:paddingLeft="15dp"
+                        android:textSize="15dp" />
+                </LinearLayout>
+                <!--            件数-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:text="*"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/liji_material_red_500" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center_vertical"
+                            android:text="件数:"
+                            android:textColor="@color/black"
+                            android:textSize="15dp" />
+                    </LinearLayout>
+
+
+                    <EditText
+                        android:id="@+id/itemNum"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/input_radius"
+                        android:gravity="center_vertical"
+                        android:hint="请输入件数"
+                        android:paddingLeft="15dp"
+                        android:textSize="15dp" />
+                </LinearLayout>
+                <!--            已付运费-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center_vertical"
+                        android:text="已付运费:"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <EditText
+                        android:id="@+id/payAlready"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/input_radius"
+                        android:gravity="center_vertical"
+                        android:hint="请输入已付运费"
+                        android:paddingLeft="15dp"
+                        android:textSize="15dp" />
+                </LinearLayout>
+                <!--            到付运费-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center_vertical"
+                        android:text="到付运费:"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <EditText
+                        android:id="@+id/payDest"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/input_radius"
+                        android:gravity="center_vertical"
+                        android:hint="请输入到付运费"
+                        android:paddingLeft="15dp"
                         android:textSize="15dp" />
                 </LinearLayout>
 
 
-                <EditText
-                    android:id="@+id/itemNum"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/input_radius"
-                    android:gravity="center_vertical"
-                    android:hint="请输入件数"
-                    android:paddingLeft="15dp"
-                    android:textSize="15dp" />
             </LinearLayout>
-            <!--            已付运费-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:gravity="center_vertical"
-                    android:text="已付运费:"
-                    android:textColor="@color/black"
-                    android:textSize="15dp" />
-
-                <EditText
-                    android:id="@+id/payAlready"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/input_radius"
-                    android:gravity="center_vertical"
-                    android:hint="请输入已付运费"
-                    android:paddingLeft="15dp"
-                    android:textSize="15dp" />
-            </LinearLayout>
-            <!--            到付运费-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:gravity="center_vertical"
-                    android:text="到付运费:"
-                    android:textColor="@color/black"
-                    android:textSize="15dp" />
-
-                <EditText
-                    android:id="@+id/payDest"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/input_radius"
-                    android:gravity="center_vertical"
-                    android:hint="请输入到付运费"
-                    android:paddingLeft="15dp"
-                    android:textSize="15dp" />
-            </LinearLayout>
+        </ScrollView>
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="提交" />
+    </RelativeLayout>
 
 
-            <!--            提交-->
-            <!--            <LinearLayout-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="50dp"-->
-            <!--                android:orientation="vertical"-->
-            <!--                android:layout_marginLeft="10dp"-->
-            <!--                android:layout_marginRight="10dp"-->
-            <!--                >-->
-            <!--                <Button-->
-            <!--                    android:id="@+id/submit"-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:text="提交" />-->
-            <!--            </LinearLayout>-->
-            <Button
-                android:id="@+id/submit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:text="提交" />
-        </LinearLayout>
-    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

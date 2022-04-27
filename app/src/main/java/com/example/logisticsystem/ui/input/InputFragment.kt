@@ -82,34 +82,98 @@ class InputFragment : Fragment() {
             var payAlready = binding.payAlready.text.toString()
             var payDest = binding.payDest.text.toString()
 
-            if (dbHelper != null) {
-                if (db != null) {
-                    dbHelper.insertData(
-                        db, src, dest, senderName, senderTel, accepterName,
-                        accepterTel, itemName, itemNum, payAlready, payDest
-                    )
-                }
-            }
-            val dbHelper =
-                getActivity()?.let {
-                    MyDatabaseHelper(
-                        it.getApplicationContext(),
-                        "LogisticSystem.db",
-                        1
-                    )
-                }
-            AlertDialog.Builder(getActivity()).apply {
-                setTitle("通知")
-                setMessage("录入运单成功")
-                setCancelable(false)
-                //点击back无法返回，默认是true
-                setPositiveButton("确认") { dialog, which ->
+            /**
+             * 非空判断
+             */
+            if (src == "") {
+                AlertDialog.Builder(getActivity()).apply {
+                    setTitle("通知")
+                    setMessage("发货地址不可为空！")
+                    setCancelable(false)
+                    //点击back无法返回，默认是true
+                    setPositiveButton("确认") { dialog, which ->
 
-                }
-                setNegativeButton("返回") { dialog, which ->
+                    }
+                    setNegativeButton("返回") { dialog, which ->
 
+                    }
+                    show()
                 }
-                show()
+            } else if (dest == "") {
+                AlertDialog.Builder(getActivity()).apply {
+                    setTitle("通知")
+                    setMessage("收货地址不可为空！")
+                    setCancelable(false)
+                    //点击back无法返回，默认是true
+                    setPositiveButton("确认") { dialog, which ->
+
+                    }
+                    setNegativeButton("返回") { dialog, which ->
+
+                    }
+                    show()
+                }
+            } else if (itemName == "") {
+                AlertDialog.Builder(getActivity()).apply {
+                    setTitle("通知")
+                    setMessage("货物名称不可为空！")
+                    setCancelable(false)
+                    //点击back无法返回，默认是true
+                    setPositiveButton("确认") { dialog, which ->
+
+                    }
+                    setNegativeButton("返回") { dialog, which ->
+
+                    }
+                    show()
+                }
+            } else if (itemNum == "") {
+                AlertDialog.Builder(getActivity()).apply {
+                    setTitle("通知")
+                    setMessage("货物数量不可为空！")
+                    setCancelable(false)
+                    //点击back无法返回，默认是true
+                    setPositiveButton("确认") { dialog, which ->
+
+                    }
+                    setNegativeButton("返回") { dialog, which ->
+
+                    }
+                    show()
+                }
+            } else {
+                if (dbHelper != null) {
+                    if (db != null) {
+                        dbHelper.insertData(
+                            db, src, dest, senderName, senderTel, accepterName,
+                            accepterTel, itemName, itemNum, payAlready, payDest
+                        )
+                    }
+                }
+                binding.src.setText("")
+                binding.dest.setText("")
+                binding.senderName.setText("")
+                binding.senderTel.setText("")
+                binding.accepterName.setText("")
+                binding.accepterTel.setText("")
+                binding.itemName.setText("")
+                binding.itemNum.setText("")
+                binding.payAlready.setText("")
+                binding.payDest.setText("")
+
+                AlertDialog.Builder(getActivity()).apply {
+                    setTitle("通知")
+                    setMessage("录入运单成功")
+                    setCancelable(false)
+                    //点击back无法返回，默认是true
+                    setPositiveButton("确认") { dialog, which ->
+
+                    }
+                    setNegativeButton("返回") { dialog, which ->
+
+                    }
+                    show()
+                }
             }
 
         }
