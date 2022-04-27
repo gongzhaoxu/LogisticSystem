@@ -129,7 +129,7 @@ class QueryFragment : Fragment() {
                     Toast.makeText(activity, "清空成功", Toast.LENGTH_SHORT).show()
                 }
                 setNegativeButton("返回") { dialog, which ->
-
+                    Toast.makeText(activity, "操作取消", Toast.LENGTH_SHORT).show()
                 }
                 show()
             }

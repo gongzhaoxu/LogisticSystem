@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.logisticsystem.databinding.ActivityCompleteUserBinding
 
@@ -42,6 +43,8 @@ class CompleteUser: AppCompatActivity() {
                    dbHelper.completeUserInfo(db,user_login,user_department,user_name,user_tel)
                 }
             }
+
+
             AlertDialog.Builder(this).apply {
                 setTitle("通知")
                 setMessage("完善资料成功")

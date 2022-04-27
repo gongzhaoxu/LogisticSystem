@@ -2,6 +2,8 @@ package com.example.logisticsystem
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.AlertDialog
+import android.app.PendingIntent.getActivity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -10,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 
@@ -17,9 +20,10 @@ class LogisticAdapter(logisticList: ArrayList<LogisticView.LogisticItem>) :
 
     RecyclerView.Adapter<LogisticAdapter.ViewHolder>() {
 
-    var logisticList1=logisticList
+    var logisticList1 = logisticList
 
-    var index=logisticList1.size
+    var index = logisticList1.size
+
     //自定义嵌套内部类 ViewHolder 来减少 findViewById() 的使用， 继承RecyclerView的ViewHolder
     //通过属性名称的id获取对应的视图，以便后续操作
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -50,7 +54,7 @@ class LogisticAdapter(logisticList: ArrayList<LogisticView.LogisticItem>) :
 
     var db = dbHelper?.writableDatabase
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):  ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         //第一个参数为单个书对应的布局文件，第二个参数为RecyclerView要显示的位置
         //第三个参数设置为false效果为你在xml中设置为什么具体显示就为什么
         val view =
@@ -63,7 +67,7 @@ class LogisticAdapter(logisticList: ArrayList<LogisticView.LogisticItem>) :
 
     //设置初次加载、滑动时的布局
     @SuppressLint("NotifyDataSetChanged")
-    override fun onBindViewHolder(holder: ViewHolder , position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val logisticItem = logisticList1[position]
         holder.id.text = "No:" + logisticItem.id
         holder.src.text = "发站:" + logisticItem.src
@@ -73,11 +77,13 @@ class LogisticAdapter(logisticList: ArrayList<LogisticView.LogisticItem>) :
          * 删除
          */
         holder.delete.setOnClickListener {
+
             db?.let { it1 -> dbHelper?.deleteItem(it1, logisticItem.id.toString()) }
             logisticList1.removeAt(position)
 //            index--
             notifyItemRemoved(position)
-            notifyItemRangeChanged(0,logisticList1.size)
+            notifyItemRangeChanged(0, logisticList1.size)
+            Toast.makeText(MyApplication.getContext(), "删除成功", Toast.LENGTH_SHORT).show()
 
         }
         holder.senderTel.text = "发货电话:" + logisticItem.senderTel
