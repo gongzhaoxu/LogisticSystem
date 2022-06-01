@@ -38,35 +38,35 @@
 
 1. 登录(Login)
 
-   <img src="https://github.com/gongzhaoxu/LogisticSystem/tree/master/README_SRC/image-20220528195836767.png" alt="image-20220528195836767" style="zoom:50%;" />
+   <img src="https://github.com/gongzhaoxu/LogisticSystem/blob/master/README_SRC/image-20220528195836767.png" alt="image-20220528195836767" style="width:300px;" />
 
 2. 注册(RegisterActivity)
 
-   <img src="C:\Users\10166\AppData\Roaming\Typora\typora-user-images\image-20220528200006604.png" alt="image-20220528200006604" style="zoom:50%;" />
+   <img src="https://github.com/gongzhaoxu/LogisticSystem/blob/master/README_SRC/image-20220528200006604.png" alt="image-20220528200006604"  style="width:300px;" />
 
 3. 我的信息(MineFragment)
 
-   <img src="C:\Users\10166\AppData\Roaming\Typora\typora-user-images\image-20220528200127290.png" alt="image-20220528200006604" style="zoom:50%;" />
+   <img src="https://github.com/gongzhaoxu/LogisticSystem/blob/master/README_SRC/image-20220528200127290.png" alt="image-20220528200006604"  style="width:300px;"  />
 
 4. 录入运单(InputFragment)
 
-   <img src="C:\Users\10166\AppData\Roaming\Typora\typora-user-images\image-20220528200352956.png" alt="image-20220528200352956" style="zoom:50%;" />
+   <img src="https://github.com/gongzhaoxu/LogisticSystem/blob/master/README_SRC/image-20220528200352956.png" alt="image-20220528200352956"  style="width:300px;"  />
 
 5. 查询运单(QueryFragment)
 
-   <img src="C:\Users\10166\AppData\Roaming\Typora\typora-user-images\image-20220528200433388.png" alt="image-20220528200433388" style="zoom:50%;" />
+   <img src="https://github.com/gongzhaoxu/LogisticSystem/blob/master/README_SRC/image-20220528200433388.png" alt="image-20220528200433388"  style="width:300px;"  />
 
 6. 完善用户信息(CompleteUser)
 
-   <img src="C:\Users\10166\AppData\Roaming\Typora\typora-user-images\image-20220528200502316.png" alt="image-20220528200502316" style="zoom:50%;" />
+   <img src="https://github.com/gongzhaoxu/LogisticSystem/blob/master/README_SRC/image-20220528200502316.png" alt="image-20220528200502316"  style="width:300px;"  />
 
 7. 运单显示界面(LogisticView)
 
-   <img src="C:\Users\10166\AppData\Roaming\Typora\typora-user-images\image-20220528200544867.png" alt="image-20220528200544867" style="zoom:50%;" />
+   <img src="https://github.com/gongzhaoxu/LogisticSystem/blob/master/README_SRC/image-20220528200544867.png" alt="image-20220528200544867"  style="width:300px;"  />
 
 8. 作者信息(WebViewActivity显示网页)
 
-   <img src="C:\Users\10166\AppData\Roaming\Typora\typora-user-images\image-20220528200631249.png" alt="image-20220528200631249" style="zoom:50%;" />
+   <img src="https://github.com/gongzhaoxu/LogisticSystem/blob/master/README_SRC/image-20220528200631249.png" alt="image-20220528200631249"  style="width:300px;"  />
 
    **总计：8个**
 
@@ -92,7 +92,7 @@
         "payDest text)"
 ```
 
-![image-20220528201934477](C:\Users\10166\AppData\Roaming\Typora\typora-user-images\image-20220528201934477.png)
+![image-20220528201934477](https://github.com/gongzhaoxu/LogisticSystem/blob/master/README_SRC/image-20220528201934477.png)
 
 用户信息表结构：
 
@@ -106,4 +106,4 @@
         "user_tel text)"
 ```
 
-![image-20220528202253106](C:\Users\10166\AppData\Roaming\Typora\typora-user-images\image-20220528202253106.png)
+![image-20220528202253106](https://github.com/gongzhaoxu/LogisticSystem/blob/master/README_SRC/image-20220528202253106.png)
