@@ -22,14 +22,13 @@ class Login : AppCompatActivity() {
         )
 
         var db = dbHelper.writableDatabase
-        dbHelper.insertUser(db, "计算机1904班", "巩钊旭", "20194711", "123456", "13993449346")
-        dbHelper.insertUser(db, "计算机1904班", "测试者", "20190001", "123456", "13993449346")
-        dbHelper.insertUser(db, "软件1901班", "无名氏", "20190000", "123456", "15524462588")
-        dbHelper.insertUser(db, "小彩蛋", "属于我们", "20190205", "20190205", "5201314")
+//        dbHelper.insertUser(db, "计算机1904班", "巩钊旭", "20194711", "123456", "13993449346")
+//        dbHelper.insertUser(db, "计算机1904班", "测试者", "20190001", "123456", "13993449346")
+//        dbHelper.insertUser(db, "软件1901班", "无名氏", "20190000", "123456", "15524462588")
 
-        dbHelper.completeUserInfo(db,"1001","测试部门","管理员","18888888888")
+//        dbHelper.completeUserInfo(db,"1001","测试部门","管理员","18888888888")
 
-        dbHelper.deleteItem(db,"1")
+//        dbHelper.deleteItem(db,"1")
         /**
          * 账号实时显示正确与否
          */

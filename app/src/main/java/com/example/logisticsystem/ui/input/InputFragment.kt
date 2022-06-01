@@ -150,6 +150,7 @@ class InputFragment : Fragment() {
                         )
                     }
                 }
+//                提交后表单内容应清空
                 binding.src.setText("")
                 binding.dest.setText("")
                 binding.senderName.setText("")

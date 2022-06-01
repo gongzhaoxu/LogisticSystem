@@ -74,7 +74,6 @@ class LogisticView : AppCompatActivity() {
                 sleep(1000)
                 val adapter = LogisticAdapter(logisticList)
                 binding.recycleView.adapter = adapter
-                Log.e("布局加载", "布局加载")
             }
             "json" -> {
                 sendRequestWithOkHttp()
