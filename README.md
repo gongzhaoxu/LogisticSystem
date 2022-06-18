@@ -46,7 +46,7 @@
 
 3. 我的信息(MineFragment)
 
-   <img src="https://cdn.jsdelivr.net/gh/gongzhaoxu/LogisticSystem@master/README_SRC/image-20220528200127290.png" alt="image-MineFragment"  style="width:300px;"  />
+   <img src="https://github.com/gongzhaoxu/LogisticSystem/blob/master/README_SRC/image-20220528200127290.png" alt="image-MineFragment"  style="width:300px;"  />
 
 4. 录入运单(InputFragment)
 
@@ -92,7 +92,7 @@
         "payDest text)"
 ```
 
-![image-20220528201934477](https://cdn.jsdelivr.net/gh/gongzhaoxu/LogisticSystem@master/README_SRC/image-20220528201934477.png)
+![image-20220528201934477](https://github.com/gongzhaoxu/LogisticSystem/blob/master/README_SRC/image-20220528201934477.png)
 
 用户信息表结构：
 
@@ -106,4 +106,4 @@
         "user_tel text)"
 ```
 
-![image-20220528202253106](https://cdn.jsdelivr.net/gh/gongzhaoxu/LogisticSystem@master/README_SRC/image-20220528202253106.png)
+![image-20220528202253106](https://github.com/gongzhaoxu/LogisticSystem/blob/master/README_SRC/image-20220528202253106.png)
